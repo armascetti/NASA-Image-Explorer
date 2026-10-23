@@ -12,6 +12,11 @@ export class App implements OnInit {
     private marsService = inject(Mars);
 
   ngOnInit() {
-    console.log("Mars component initialized")
+    this.marsService.getMarsImages().subscribe(data => {
+      this.marsImages = data as any[];
+      console.log(this.marsImages)
+    })
   }
+
+  marsImages: any[] = [];
 }

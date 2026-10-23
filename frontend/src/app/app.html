@@ -2,3 +2,10 @@
 <P>
   Explore Mars with NASA's API
 </P>
+
+@for (image of marsImages; track $index){
+  <div>
+    <h2> {{image.data[0].title}}</h2>
+    <img [src]= "image.links[0].href" width="300"/> 
+  </div>
+}
