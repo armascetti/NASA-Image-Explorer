@@ -1,5 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Mars } from './services/mars'
 
 @Component({
   selector: 'app-root',
@@ -8,15 +9,9 @@ import { HttpClient } from '@angular/common/http';
   styleUrl: './app.css'
 })
 export class App implements OnInit {
-  private http = inject(HttpClient);
-
-  tasks: { id: number; title: string }[] = [];
+    private marsService = inject(Mars);
 
   ngOnInit() {
-    this.http.get<{ id: number; title: string }[]>(
-      'http://localhost:3000/api/tasks'
-    ).subscribe(data => {
-      this.tasks = data;
-    });
+    console.log("Mars component initialized")
   }
 }
