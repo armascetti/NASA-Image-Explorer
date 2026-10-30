@@ -1,5 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { MarsImage } from '../models/mars-image';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class Mars {
 
 
 getMarsImages(){
-    return this.http.get('/api/mars');
+    return this.http.get<MarsImage[]>('/api/mars');
 }
 
 }
